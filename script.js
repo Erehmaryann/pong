@@ -1,7 +1,7 @@
 // Canvas
 const { body } = document;
-
-
+const canvas = document.createElement('canvas');
+const context = canvas.getContext('2d');
 const width = 500;
 const height = 700;
 const screenWidth = window.screen.width;
@@ -50,31 +50,31 @@ const winningScore = 7;
 // Render Everything on Canvas
 function renderCanvas() {
   // Canvas Background
-  // context.fillStyle = 'black';
-  // context.fillRect(0, 0, width, height);
+  context.fillStyle = 'black';
+  context.fillRect(0, 0, width, height);
 
   // Paddle Color
-  // context.fillStyle = 'white';
+  context.fillStyle = 'white';
 
   // Player Paddle (Bottom)
-  // context.fillRect(paddleBottomX, height - 20, paddleWidth, paddleHeight);
+  context.fillRect(paddleBottomX, height - 20, paddleWidth, paddleHeight);
 
   // Computer Paddle (Top)
-  // context.fillRect(paddleTopX, 10, paddleWidth, paddleHeight);
+  context.fillRect(paddleTopX, 10, paddleWidth, paddleHeight);
 
   // Dashed Center Line
-  // context.beginPath();
-  // context.setLineDash([4]);
-  // context.moveTo(0, 350);
-  // context.lineTo(500, 350);
-  // context.strokeStyle = 'grey';
-  // context.stroke();
+  context.beginPath();
+  context.setLineDash([4]); //4px per dash
+  context.moveTo(0, 350); //Y value of 350 is center of canvas because height is 700
+  context.lineTo(500, 350); //X value of 500. starting from 0 to 500 because width is 500
+  context.strokeStyle = 'grey';
+  context.stroke();
 
   // Ball
-  // context.beginPath();
-  // context.arc(ballX, ballY, ballRadius, 2 * Math.PI, false);
-  // context.fillStyle = 'white';
-  // context.fill();
+  context.beginPath();
+  context.arc(ballX, ballY, ballRadius, 2 * Math.PI, false);
+  context.fillStyle = 'white';
+  context.fill();
 
   // Score
   // context.font = '32px Courier New';
@@ -189,7 +189,7 @@ function showGameOverEl(winner) {
   // playAgainBtn.textContent = 'Play Again';
   // // Append
 
-  
+
 }
 
 // Check If One Player Has Winning Score, If They Do, End Game
@@ -208,7 +208,7 @@ function animate() {
   ballMove();
   ballBoundaries();
   computerAI();
-  
+
 }
 
 // Start Game, Reset Everything
