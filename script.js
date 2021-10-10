@@ -90,9 +90,6 @@ function createCanvas() {
   renderCanvas();
 }
 
-// Remove this
-createCanvas();
-
 // Reset Ball to Center
 function ballReset() {
   ballX = width / 2;
@@ -241,4 +238,4 @@ function startGame() {
 }
 
 // On Load
-// startGame();
+startGame();
