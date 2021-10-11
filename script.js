@@ -205,7 +205,7 @@ function animate() {
   ballMove();
   ballBoundaries();
   computerAI();
-
+  window.requestAnimationFrame(animate);
 }
 
 // Start Game, Reset Everything
